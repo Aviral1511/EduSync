@@ -13,7 +13,7 @@ const CourseCreate = () => {
         try {
             const res = await axios.post('http://localhost:4000/api/course/createCourse', { title, description, Teacher: currentUser._id });
             console.log(res.data);
-            navigate('/displaySingleCourse');
+            navigate(`/displaySingleCourse/${res.data}`);
         
         } catch (error) {
             console.error('Error occurred:', error.message);

@@ -11,7 +11,7 @@ const courseSchema =new mongoose.Schema({
     required:true,
    },
    Assignment:{
-    type:String,
+    type:Array,
    },
    Teacher:{
     type: mongoose.Schema.Types.ObjectId,

@@ -5,6 +5,7 @@ const {dbConnect} = require('./config/dbConnect');
 const parentRouter = require('./routes/parentRoutes');
 const teacherRouter=require('./routes/teacherRoutes');
 const courseRouter=require('./routes/courseRoutes');
+const assignmentRouter=require('./routes/assignmentRoutes');
 const cors=require('cors');
 const cookieParser=require('cookie-parser');
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(cors());
 app.use('/api/parent',parentRouter);
 app.use('/api/teacher',teacherRouter);
 app.use('/api/course',courseRouter);
+app.use('/api/assignment',assignmentRouter);
 const cloudinary=require('./config/cloudinary');
 cloudinary.cloudinaryConnect();
 

@@ -3,25 +3,26 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
-import HomePage from './components/HomePage'
+import HomePage from './pages/HomePage'
 import Signup from './components/Signup'
 import CourseCreate from './pages/CourseCreate';
 import DisplaySingleCourse from './pages/DisplaySingleCourse';
-
-
+import ParentPage from './pages/ParentPage'
+import TeacherPage from './pages/TeacherPage'
 const App = () => {
   return (
     <>
     <BrowserRouter>
-      <Navbar />
+      
       <Routes>
         <Route path='/' element={<HomePage />} />
+
+        <Route path='/TeacherPage' element={<TeacherPage />}/>
+        <Route path='/ParentPage' element={<ParentPage />}/>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/createCourse' element={<CourseCreate />} />
-        <Route path='/displaySingleCourse' element={<DisplaySingleCourse />} />
-        
-          
+        <Route path='/displaySingleCourse/:id' element={<DisplaySingleCourse />} />
       </Routes>
     </BrowserRouter>
     </>
