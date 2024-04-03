@@ -24,5 +24,6 @@ exports.createParent = async (req, res) => {
             message: err.message,
             success:false,
         })
+        
     }
 }
