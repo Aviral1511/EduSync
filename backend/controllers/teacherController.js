@@ -64,7 +64,7 @@ exports.loginTeacher = async (req, res) => {
             httpOnly: true
         });
 
-        return res.status(200).json({ message: "Login successful", token });
+        return res.status(200).json(alreadyExists );
     } catch (err) {
         console.error(err.message);
         return res.status(500).json({
