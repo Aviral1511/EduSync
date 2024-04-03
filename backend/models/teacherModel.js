@@ -23,6 +23,6 @@ const teacherSchema =new mongoose.Schema({
    }  
 
     })
-module.exports=mongoose.model("Parent",teacherSchema)
+module.exports=mongoose.model("Teacher",teacherSchema)
 
 
