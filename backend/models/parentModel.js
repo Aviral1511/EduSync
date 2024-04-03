@@ -22,6 +22,6 @@ const parentSchema =new mongoose.Schema({
     ref:"Course",
    }  
     })
-module.exports=mongoose.model("Teacher",parentSchema)
+module.exports=mongoose.model("Parent",parentSchema)
 
 
