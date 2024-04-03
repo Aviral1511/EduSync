@@ -1,9 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice"
 
 const Login = () => {
+
+    const { loading, error,currentUser } = useSelector((state) => state.user);
+    // const { } = useSelector((state) => state.user);
+   
+    const dispatch = useDispatch();
     const [mode, setmode] = useState('parent');
     const [formdata1, setformdata1] = useState({
         email: '',
@@ -35,6 +41,7 @@ const Login = () => {
                 },
             });
             const data = await res.data;
+            dispatch(signInSuccess(data));
             console.log("data is : ", data)
             console.log(res)
         } catch (error) {
@@ -51,13 +58,14 @@ const Login = () => {
                 },
             });
             const data = await res.data;
+            dispatch(signInSuccess(data));
             console.log("data is : ", data)
             console.log(res)
         } catch (error) {
             console.error(error);
         }
     }
-
+if(currentUser) console.log("currentUser is : ", currentUser);
 
   return (
     <>
