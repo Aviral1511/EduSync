@@ -21,7 +21,10 @@ const teacherSchema =new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref:"Course",
    }  
-
+,    mode: {
+    type: String,
+    default: "teacher",
+}
     })
 module.exports=mongoose.model("Teacher",teacherSchema)
 

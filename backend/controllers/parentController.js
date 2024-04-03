@@ -34,10 +34,11 @@ exports.createParent = async (req, res) => {
 exports.loginParent = async (req, res) => {
     try {
         const {  email, password } = req.body;
-        const alreadyExists = await Parent.findOne({ email: email });
 
+        const alreadyExists = await Parent.findOne({ email: email });
+console.log(alreadyExists)
         if (!alreadyExists) {
-            return res.status(400).json({
+            return res.status(402).json({
                 message: "Please login first"
             })
         }
@@ -60,7 +61,7 @@ exports.loginParent = async (req, res) => {
             httpOnly: true,
         });
         
-        return res.status(201).json({ message: "Login successful" ,token});
+        return res.status(201).json(alreadyExists);
 
     } catch (err) {
         console.log(err.message);

@@ -1,9 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice"
 
 const Login = () => {
+    const { loading, error,currentUser } = useSelector((state) => state.user);
+    // const { } = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [mode, setmode] = useState('parent');
     const [formdata1, setformdata1] = useState({
         email: '',
@@ -35,8 +42,10 @@ const Login = () => {
                 },
             });
             const data = await res.data;
+            dispatch(signInSuccess(data));
             console.log("data is : ", data)
             console.log(res)
+            navigate("/parent")
         } catch (error) {
             console.error(error);
         }
@@ -51,25 +60,32 @@ const Login = () => {
                 },
             });
             const data = await res.data;
+            dispatch(signInSuccess(data));
             console.log("data is : ", data)
             console.log(res)
+            navigate('/teacher')
         } catch (error) {
             console.error(error);
         }
     }
-
+if(currentUser) console.log("currentUser is : ", currentUser);
 
   return (
-    <>
-    <div>
+    <div className='flex justify-center items-center' style={{minHeight:"100vh"}}>
+    <div className=' bg-blue-300 w-80 px-2 py-4 rounded-2xl min-h-full '>
         <div>Login</div>
-        <button onClick={()=>setmode('parent')}>login as Parent</button>
-        <button onClick={()=>setmode('teacher')}>login as teacher</button>
+        <br />
+        <div className='flex justify-center'>
+            <button className=' bg-green-200 px-2' onClick={()=>setmode('parent')}>login as Parent</button>
+            <div className=' bg-slate-400 w-1'></div>
+            <button className=' bg-green-200 px-2' onClick={()=>setmode('teacher')}>login as teacher</button>
+        </div>
+        <br/>
         <div>
             {(mode=='parent')?
-            <div>
-                Login as parent
-                <form className='flex flex-col ' onSubmit={handleParentLogin}>
+            <div className=' '>
+                Logging in as Parent.  <br /> <br />
+                <form className='flex flex-col gap-2 ' onSubmit={handleParentLogin}>
                     <div>
                         <input type='email' name='email' value={formdata1.email} onChange={handleChangeParent} placeholder='Enter the email.' />
                     </div>
@@ -77,13 +93,13 @@ const Login = () => {
                         <input type='password' name='password' value={formdata1.password} onChange={handleChangeParent} placeholder='Enter your Password.' />
                     </div>
                     <div>
-                        <input type='submit' value={'Login'} />
+                        <input className='button' type='submit' value={'Login'} />
                     </div>
                 </form>
             </div>
             :<div>
-                Login as Teacher
-                <form className='flex flex-col ' onSubmit={handleTeacherLogin}>
+                Logging in as Teacher. <br /> <br />
+                <form className='flex flex-col gap-2' onSubmit={handleTeacherLogin}>
                     <div>
                         <input type='email' name='email' value={formdata2.email} onChange={handleChangeTeacher} placeholder='Enter the email.' />
                     </div>
@@ -91,13 +107,13 @@ const Login = () => {
                         <input type='password' name='password' value={formdata2.password} onChange={handleChangeTeacher} placeholder='Enter your Password.' />
                     </div>
                     <div>
-                        <input type='submit' value={'Login'} />
+                        <input className='button' type='submit' value={'Login'} />
                     </div>
                 </form>
             </div>}
         </div>
     </div>
-    </>
+    </div>
     
   )
 }
