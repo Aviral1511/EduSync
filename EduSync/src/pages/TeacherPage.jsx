@@ -4,6 +4,7 @@ import TeacherNav from '../components/TeacherNav'
 const TeacherPage = () => {
   return (
     <TeacherNav />
+    
   )
 }
 

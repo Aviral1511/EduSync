@@ -1,16 +1,20 @@
 import React from 'react'
+import "./Navbar.css"
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <div style={{display:"flex", justifyContent:"space-between"}}>
-        <div><a class="navbar-brand" href="/">EduSync</a></div>
-        <div >
-          <a class="navbar-brand" href="/signup">Signup</a>
-          <a class="navbar-brand" href="/login">Login</a>  
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar">
+    <div class="container">
+      <a href="#" class="brand">Logo</a>
+      <div class="menu-toggle">&#9776;</div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
   )
 }
 
