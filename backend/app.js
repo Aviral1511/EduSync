@@ -9,12 +9,12 @@ const cookieParser=require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
 dbConnect();
-app.use(cors);
+app.use(cors());
 app.use('/api/parent',parentRouter);
 app.use('/api/teacher',teacherRouter);
 
 app.get("/", (req, res) => {
-    res.send("<h1>Hello, world!</h1>"); 
+    res.send("Hello, world!"); 
   });
 
 const port=4000;
