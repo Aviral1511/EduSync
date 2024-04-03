@@ -14,6 +14,8 @@ app.use(cors());
 app.use('/api/parent',parentRouter);
 app.use('/api/teacher',teacherRouter);
 app.use('/api/course',courseRouter);
+const cloudinary=require('./config/cloudinary');
+cloudinary.cloudinaryConnect();
 
 app.get("/", (req, res) => {
     res.send("Hello, world!"); 
