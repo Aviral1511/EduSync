@@ -7,9 +7,7 @@ import HomePage from './components/HomePage'
 import Signup from './components/Signup'
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
     <BrowserRouter>

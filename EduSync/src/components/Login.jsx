@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -25,10 +26,10 @@ const Login = () => {
         });
     };
 
-    const handleParentLogin = async ()=>{
+    const handleParentLogin = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.get(backendUrl+'/api/auth/parent/login', formdata, {
+            const res = await axios.post(backendUrl+'/api/parent/login', formdata1, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -41,10 +42,10 @@ const Login = () => {
         }
     }
 
-    const handleTeacherLogin = async ()=>{
+    const handleTeacherLogin = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.post(backendUrl+'/api/auth/teacher/login', formdata, {
+            const res = await axios.post(backendUrl+'/api/teacher/login', formdata2, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -68,7 +69,7 @@ const Login = () => {
             {(mode=='parent')?
             <div>
                 Login as parent
-                <form className='flex flex-col ' onSubmit={()=>handleParentLogin()}>
+                <form className='flex flex-col ' onSubmit={handleParentLogin}>
                     <div>
                         <input type='email' name='email' value={formdata1.email} onChange={handleChangeParent} placeholder='Enter the email.' />
                     </div>
@@ -82,7 +83,7 @@ const Login = () => {
             </div>
             :<div>
                 Login as Teacher
-                <form className='flex flex-col ' onSubmit={()=>handleTeacherLogin()}>
+                <form className='flex flex-col ' onSubmit={handleTeacherLogin}>
                     <div>
                         <input type='email' name='email' value={formdata2.email} onChange={handleChangeTeacher} placeholder='Enter the email.' />
                     </div>
