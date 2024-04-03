@@ -1,22 +1,23 @@
-const Parent = require('../models/parentModel')
+const Teacher = require('../models/teacherModel')
 
-exports.createParent = async (req, res) => {
+exports.createTeacher = async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        const alreadyExists=await Parent.findOne({ email: email});
+        const alreadyExists=await Teacher.findOne({ email: email});
         
         if(alreadyExists){
             return res.status(400).json({
                 message: "Email already exists"
             })
         }
-        const newParent = new Parent({
+
+        const newTeacher = new Teacher({
             name: name,
             email: email,
             password: password
         })
-        const savedParent = await newParent.save();
-       return res.status(201).json({savedParent});
+        const savedTeacher = await newTeacher.save();
+       return res.status(201).json({savedTeacher});
 
     } catch (err) {
         console.log(err.message);
