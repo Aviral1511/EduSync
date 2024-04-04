@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Features from '../components/Features'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Footer from '../components/Footer';
+import FAQ from '../components/FAQ';
 const HomePage = () => {
   const { currentUser } = useSelector(state => state.user);
 
@@ -40,6 +42,8 @@ const HomePage = () => {
         </div>
       </div>
       <Features />
+      <FAQ/>
+      <Footer/>
     </div>
   )
 }

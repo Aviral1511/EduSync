@@ -20,6 +20,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Games from './pages/Games';
 import Quiz from './pages/Quiz';
 import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
+import About from './components/About';
 
 
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/simongame" element={<SimonGame />} />
           <Route path="/publishQuestion" element={<QuestionPage />} />
           <Route path="/publishWord" element={<WordPage />} />
+          <Route path="/about" element={<About />} />
 
         </Routes>
       </BrowserRouter>
