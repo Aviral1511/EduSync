@@ -17,16 +17,14 @@ import QuestionPage from './pages/QuestionPage';
 import WordPage from './pages/WordPage';
 import ProfilePage from './pages/ProfilePage';
 import PrivateRoute from './components/PrivateRoute';
+import Games from './pages/Games';
+import Quiz from './pages/Quiz';
 import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
 
 
 const App = () => {
   return (
     <>
-
-
-
-
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage />} />
