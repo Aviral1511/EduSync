@@ -15,6 +15,8 @@ import ReplyForum from './components/forumReply';
 import SimonGame from './pages/SimonGame';
 import QuestionPage from './pages/QuestionPage';
 import WordPage from './pages/WordPage';
+import ProfilePage from './pages/ProfilePage';
+import PrivateRoute from './components/PrivateRoute';
 
 
 const App = () => {

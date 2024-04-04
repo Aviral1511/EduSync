@@ -11,8 +11,9 @@ const CourseCreate = () => {
     const handelFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:4000/api/course/createCourse', { title, description, Teacher: currentUser._id });
-            console.log(res.data.courseId);
+            // console.log()
+            const res = await axios.post('http://localhost:4000/api/course/createCourse', { title, description, teacher: currentUser._id.toString()});
+            console.log(res.data);
             navigate(`/displaySingleCourse/${res.data._id}`);
         
         } catch (error) {

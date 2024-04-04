@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const DisplaySingleCourse = () => {
     const [assignments, setAssignments] = useState([]);
     const { id } = useParams();
-
+    console.log(id);
 const [courseJoinId,setcourseJoinId] = useState();
 
     useEffect(() => {
@@ -36,14 +36,7 @@ const [courseJoinId,setcourseJoinId] = useState();
                     <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
                 </div>
                 <h1>Id of course : {courseJoinId}</h1>
-                <div>
-                    {/* Render fetched assignments here */}
-                    <ul>
-                        {assignments.map((assignment, index) => (
-                            <li key={index}>{assignment}</li>
-                        ))}
-                    </ul>
-                </div>
+               
             </div>
         </div>
     );
