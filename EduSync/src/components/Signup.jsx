@@ -96,7 +96,7 @@ const Signup = () => {
                                 Signing Up in as Parent.  <br /> <br />
                                 <form className='flex text-center flex-col gap-2 ' onSubmit={handleParentSignup}>
                                     <div>
-                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='text' name='name' value={formdata1.name} onChange={handleChangeParent} placeholder='Enter your name.' />
+                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='' name='name' value={formdata1.name} onChange={handleChangeParent} placeholder='Enter your name.' />
                                     </div>
                                     <div>
                                         <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='email' name='email' value={formdata1.email} onChange={handleChangeParent} placeholder='Enter the email.' />
@@ -115,13 +115,13 @@ const Signup = () => {
                                 Signing Up in as Teacher. <br /> <br />
                                 <form className='flex text-center  flex-col gap-2' onSubmit={handleTeacherSignup}>
                                     <div>
-                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='text' name='name' value={formdata2.name} onChange={handleChangeTeacher} placeholder='Enter your name.' />
+                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:w-[50%]' type='' name='name' value={formdata2.name} onChange={handleChangeTeacher} placeholder='Enter your name.' />
                                     </div>
                                     <div>
-                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='email' name='email' value={formdata2.email} onChange={handleChangeTeacher} placeholder='Enter the email.' />
+                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:w-[50%]' type='email' name='email' value={formdata2.email} onChange={handleChangeTeacher} placeholder='Enter the email.' />
                                     </div>
                                     <div>
-                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:sm:w-[50%]' type='password' name='password' value={formdata2.password} onChange={handleChangeTeacher} placeholder='Enter your Password.' />
+                                        <input className='rounded-lg p-2 w-[80%] sm:w-[60%]  md:w-[50%]' type='password' name='password' value={formdata2.password} onChange={handleChangeTeacher} placeholder='Enter your Password.' />
                                     </div>
                                     <div>
                                         <input className='hover:transition-all   duration-300 hover:bg-green-500 hover:text-white px-3 py-2 rounded-xl bg-green-200 text-gray-600' type='submit' value={'Signup'} />

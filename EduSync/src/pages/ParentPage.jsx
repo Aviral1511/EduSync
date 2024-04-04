@@ -1,11 +1,9 @@
 import React from 'react'
-
 import Navbar from '../components/Navbar'
-
 import ParentNav from '../components/ParentNav'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import { useEffect ,useState} from 'react';
 
 const ParentPage = () => {
   const id = useParams();

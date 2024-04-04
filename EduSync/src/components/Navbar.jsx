@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import image from '../../public/education.svg'
 import axios from 'axios';
 import { signoutUserStart, signoutUserSuccess, signoutUserFailure } from '../redux/user/userSlice';
 
@@ -11,9 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const { currentUser } = useSelector(state => state.user);
-
-  
-
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -46,8 +44,11 @@ const Navbar = () => {
         <div className='flex flex-row gap-3 items-center'>
           <Link to="/"
             onClick={closeDropdown}>
-            <div className='flex flex-row gap-2'>
-              <span className='text-blue-400 font-bold sm:text-2xl text-xl'>Edusync</span>
+            <div className='flex flex-row items-center gap-1'>
+            <img src={image} className='h-[25px] w-[25px]'></img>
+              <span className='text-blue-400 font-bold sm:text-2xl text-xl'>
+
+              Edusync</span>
             </div>
           </Link>
           {
