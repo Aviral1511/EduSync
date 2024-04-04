@@ -20,6 +20,10 @@ const parentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course",
     }],
+    marks: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Marks",
+    },
     mode: {
         type: String,
         default: "parent",

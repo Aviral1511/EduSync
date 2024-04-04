@@ -4,6 +4,7 @@ const {createParent,loginParent, createForum}=require('../controllers/parentCont
 
 
 router.post('/sign-up',createParent);
+
 router.post('/login',loginParent);
 
 router.post('/createForum',createForum);
