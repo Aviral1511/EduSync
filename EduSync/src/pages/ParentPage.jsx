@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 const ParentPage = () => {
   const { currentUser } = useSelector((state) => state.user);
   const id = useParams();
@@ -26,14 +26,17 @@ const ParentPage = () => {
     <>
       <Navbar />
       <div className='p-3 '>
-      <div className='grid grid-cols-3 gap-4 '>
-        {courses.map((course, index) => (
-          <div key={index} className='flex flex-col bg-blue-300 rounded-lg p-4'>
-            <h2>{course.title}</h2>
-            <p>{course.description}</p>
-          </div>
-        ))}
-      </div>
+        <div className='sm:grid flex flex-col    sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 '>
+          {courses.map((course, index) => (
+            <Link
+            to={`/displaySingleCourseForParent/${course._id}`}
+              key={index}
+              className='flex flex-col bg-blue-200 rounded-lg p-4'>
+              <h2 className='font-semibold text-xl text-gray-800'>{course.title}</h2>
+              <p className='text-lg text-gray-700'>{course.description}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );

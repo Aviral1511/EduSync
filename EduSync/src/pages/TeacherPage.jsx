@@ -1,49 +1,48 @@
-import React, { useEffect, useState } from 'react'
-import TeacherNav from '../components/TeacherNav'
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'; 
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const TeacherPage = () => {
-  const {id}= useParams();
-  // console.log(id);
-  const [course, setCourse] = useState([]);
-  const { loading, error,currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
+  const {id} = useParams();
+  const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     const getCourse = async () => {
       try {
-        const res = await axios.get(`/api/course/getCoursesByTeacherId/${id}`);
-        const data = await res.data;
-        console.log(data);
-        setCourse(data);
+        const res = await axios.get(`http://localhost:4000/api/teacher/getAllcourses/${currentUser._id}`);
+        const data = res.data;
+        // console.log(data.courses)
+        setCourses(data.courses);
       } catch (err) {
-        console.log("cannot get market " , err);
+        console.log("Cannot get courses");
       }
     };
     getCourse();
-}, []);
+  }, []);
 
   return (
-    
-    <div>
-      <TeacherNav />
-      {
-        course.data && course.data.map((curr) => (
-          <a className=" bg-blue-300 group flex flex-col gap-3 rounded-2xl p-5 duration-100 hover:bg-brand-amber-2"  
-            href={`/getSingleCourse/${id}`} key={id}>
-              <div className="w-full overflow-hidden rounded-xl">
-                  <img src='#' alt='No img'
-                  className="w-full  duration-100 group-hover:-0" />
-              </div>
-              <h1 className="flex justify-between text-2xl">{curr.title}</h1>
-              <p>{curr.description}</p>
-          </a>
-        ))
-      }
-    </div>
-    
-  )
-}
+    <>
+      <Navbar />
+      <div className='p-3 '>
+        <div className='sm:grid  flex flex-col sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-4 '>
+          {courses.map((course, index) => (
+            <Link
+            to={`/displaySingleCourse/${course._id}`}
+              key={index}
+              className='flex flex-col bg-blue-200 rounded-lg p-4'>
+              <h2 className='font-semibold text-xl text-gray-800'>{course.title}</h2>
+              <p className='text-lg text-gray-700'>{course.description}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default TeacherPage;

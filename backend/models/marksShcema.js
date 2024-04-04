@@ -3,6 +3,11 @@ const mongoose = require("mongoose")
 const markSchema = new mongoose.Schema({
     marks: {
         type: Number,
+        default:0,
+    },
+    totalmarks: {
+        type: Number,
+        default:0,
     },
     course: {
          type: mongoose.Schema.Types.ObjectId,
@@ -13,6 +18,7 @@ const markSchema = new mongoose.Schema({
         ref: "Parent",
     }
 })
+
 module.exports = mongoose.model("Marks", markSchema)
 
 

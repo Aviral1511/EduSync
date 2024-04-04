@@ -3,6 +3,7 @@ const Course = require('../models/courseModel');
 const Parent = require('../models/parentModel');
 const uuid = require('uuid');
 const Teacher = require('../models/teacherModel');
+const { countReset } = require('console');
 exports.createCourse = async (req, res) => {
     try {
         const randomNumber = uuid.v4();
@@ -66,17 +67,51 @@ exports.getCourseByCourseId = async (req, res) => {
         });
     }
 };
+// exports.fetchAllStudents = async (req, res) => {
+//     try {
+//         const {id}=req.params;
+
+//         const students = await Parent.findAll(id);
+//         console.log(course);
+//         if (!course) {
+//             return res.status(404).json({
+//                 message: "Course not found"
+//             });
+//         }
+
+//          console.log(students);
+//         return res.status(200).json({
+//             students: students
+//         });
+
+//     } catch (err) {
+//         console.error(err.message);
+//         return res.status(500).json({
+//             message: "Internal Server Error",
+//             success: false,
+//         });
+//     }
+// };
 exports.fetchAllStudents = async (req, res) => {
     try {
+        const { id } = req.params;
+       
+        // Assuming you have a proper association between Parent and EnrolledCourses
+        const students = await Parent.find({
+             EnrolledCourses: id // This should be adjusted based on your actual association
+        });
 
-        const course = await Course.findById(req.params.id);
-        console.log(course);
-        if (!course) {
+        if (!id) {
             return res.status(404).json({
-                message: "Course not found"
+                message: "Course ID not provided"
             });
         }
-        const students = course.EnrolledUser || [];
+
+        if (!students || students.length === 0) {
+            return res.status(202).json({
+                data: []
+            });
+        }
 
         return res.status(200).json({
             students: students
@@ -93,10 +128,8 @@ exports.fetchAllStudents = async (req, res) => {
 
 exports.JoinCourseByCourseId = async (req, res) => {
     try {
-        console.log("in");
-        console.log(req.body);
         const { courseId, studentId } = req.body;
-
+        console.log(courseId, studentId);
         const course = await Course.findOne({ courseId: courseId })
         if (!course) {
             return res.status(404).json({
@@ -104,18 +137,18 @@ exports.JoinCourseByCourseId = async (req, res) => {
             });
         }
 
-        // EnrolledCourses
-        console.log("in1");
-        console.log(studentId);
         const student = await Parent.findOne({ _id: studentId });
-        // console.log(student);
         student.EnrolledCourses.push(course._id);
         await student.save();
-        console.log("in2");
-        // console.log(student);
+        course.EnrolledUser.push(student._id);
+        await course.save();
+
+        console.log(course);
+
         return res.status(200).json(
             { message: "successful", success: true, student }
         );
+
 
     } catch (err) {
         console.error(err.message);
@@ -125,3 +158,4 @@ exports.JoinCourseByCourseId = async (req, res) => {
         });
     }
 };
+

@@ -74,3 +74,52 @@ exports.loginTeacher = async (req, res) => {
         });
     }
 };
+
+
+exports.getTeacher = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log(id);
+        console.log("i1")
+        const teacher = await Teacher.findOne({_id:id});
+        console.log("i2")
+        console.log(teacher);
+        if (!teacher) {
+            return res.status(402).json({
+                message: "Teacher not found"
+            });
+        }
+
+        return res.status(200).json(teacher);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json({
+            message: "Internal Server Error",
+            success: false,
+            error: err.message
+        });
+    }
+}
+exports.getAllCourses = async (req, res) => {
+    try {
+
+        const { id } = req.params;
+        
+        const teacher = await Teacher.findOne({_id:id}).populate('courses');
+      
+        if (!teacher) {
+            return res.status(402).json({
+                message: "Teacher not found"
+            });
+        }
+
+        return res.status(200).json(teacher);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json({
+            message: "Internal Server Error",
+            success: false,
+            error: err.message
+        });
+    }
+}
