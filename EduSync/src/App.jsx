@@ -8,13 +8,13 @@ import CourseCreate from './pages/CourseCreate';
 import DisplaySingleCourse from './pages/DisplaySingleCourse';
 import ParentPage from './pages/ParentPage'
 import TeacherPage from './pages/TeacherPage'
-
 import JoinCourse from './pages/JoinCourse';
-
 import Forum from './components/Forum';
 import CreateForum from './components/createForum';
 import ReplyForum from './components/forumReply';
-
+import SimonGame from './pages/SimonGame';
+import QuestionPage from './pages/QuestionPage';
+import WordPage from './pages/WordPage';
 
 
 const App = () => {
@@ -36,6 +36,9 @@ const App = () => {
         <Route path="/forum" element={<Forum />} />
         <Route path="/forum/createForum" element={<CreateForum />} />
         <Route path="/forum/reply/:id" element={<ReplyForum />} />
+        <Route path="/simongame" element={<SimonGame />}/>
+        <Route path="/publishQuestion" element={<QuestionPage />}/>
+        <Route path="/publishWord" element={<WordPage />}/>
 
       </Routes>
     </BrowserRouter>
