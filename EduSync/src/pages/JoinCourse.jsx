@@ -54,7 +54,7 @@ const JoinCourse = () => {
                     />
                     <button
                         onClick={handleJoinCourse}
-                        className='bg-blue-400 rounded-lg w-[15%] px-4 py-2 hover:transition-all duration-300 hover:scale-105 text-white'
+                        className='bg-blue-400 rounded-lg flex flex-row justify-center  text-center w-[25%] sm:w-[15%] px-4 py-2 hover:transition-all duration-300 hover:scale-105 text-white'
                     >
                         Join
                     </button>

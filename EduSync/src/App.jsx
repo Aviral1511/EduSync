@@ -39,12 +39,13 @@ const App = () => {
             <Route path='/join-course' element={<JoinCourse />} />
             <Route path='/TeacherPage' element={<TeacherPage />} />
             <Route path='/ParentPage' element={<ParentPage />} />
+            <Route path='/ParentPage' element={<ParentPage />}/>
+       
           </Route>
         
      
 
         <Route path='/TeacherPage' element={<TeacherPage />}/>
-        <Route path='/ParentPage' element={<ParentPage />}/>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
 
