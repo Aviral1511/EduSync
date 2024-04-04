@@ -33,6 +33,8 @@ const App = () => {
           <Route path="/forum/createForum" element={<CreateForum />} />
           <Route path="/forum/reply/:id" element={<ReplyForum />} />
 
+
+
           <Route element={<PrivateRoute />}>
             <Route path='/profile' element={<ProfilePage />} />
             <Route path='/createCourse' element={<CourseCreate />} />
