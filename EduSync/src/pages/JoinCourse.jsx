@@ -82,6 +82,8 @@ const JoinCourse = () => {
     };
 
     return (
+        <div>
+        <Navbar/>
         <div className='w-full h-full mx-auto p-5 flex flex-row justify-center items-center'>
             <div className='w-[780px] mx-auto flex flex-col gap-6'>
                 <form className='flex flex-col gap-3 p-4 border-2 border-opacity-50 rounded-xl border-gray-600'>
@@ -112,6 +114,7 @@ const JoinCourse = () => {
                         <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
                     </ul>
                 </div>
+            </div>
             </div>
         </div>
     );

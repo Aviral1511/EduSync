@@ -1,7 +1,11 @@
 import React from 'react'
+
+import Navbar from '../components/Navbar'
+
 import ParentNav from '../components/ParentNav'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 
 const ParentPage = () => {
   const id = useParams();
@@ -24,7 +28,7 @@ const ParentPage = () => {
   }, []);
 
   return (
-    <ParentNav />
+    <Navbar />
   )
 }
 

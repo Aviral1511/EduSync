@@ -9,6 +9,9 @@ import DisplaySingleCourse from './pages/DisplaySingleCourse';
 import ParentPage from './pages/ParentPage'
 import TeacherPage from './pages/TeacherPage'
 import JoinCourse from './pages/JoinCourse';
+
+import Navbar from './components/Navbar';
+
 import Forum from './components/Forum';
 import CreateForum from './components/createForum';
 import ReplyForum from './components/forumReply';
@@ -22,6 +25,12 @@ import PrivateRoute from './components/PrivateRoute';
 const App = () => {
   return (
     <>
+
+      <BrowserRouter>
+      
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -34,6 +43,7 @@ const App = () => {
         <Route path='/createCourse' element={<CourseCreate />} />
         <Route path='/displaySingleCourse/:id' element={<DisplaySingleCourse />} />
         <Route path='/join-course' element={<JoinCourse />} />
+
 
         <Route path="/forum" element={<Forum />} />
         <Route path="/forum/createForum" element={<CreateForum />} />
