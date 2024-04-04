@@ -9,6 +9,7 @@ import CourseCreate from './pages/CourseCreate';
 import DisplaySingleCourse from './pages/DisplaySingleCourse';
 import ParentPage from './pages/ParentPage'
 import TeacherPage from './pages/TeacherPage'
+import JoinCourse from './pages/JoinCourse';
 const App = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/createCourse' element={<CourseCreate />} />
         <Route path='/displaySingleCourse/:id' element={<DisplaySingleCourse />} />
+        <Route path='/join-course' element={<JoinCourse />} />
       </Routes>
     </BrowserRouter>
     </>

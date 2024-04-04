@@ -37,7 +37,6 @@ exports.createAssignment = async (req, res) => {
     }
 };
 
-
 exports.fetchAllAssignment = async (req, res) => {
     try {
      const {instructorId}=req;body;

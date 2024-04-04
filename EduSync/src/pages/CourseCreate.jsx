@@ -12,8 +12,8 @@ const CourseCreate = () => {
         e.preventDefault();
         try {
             const res = await axios.post('http://localhost:4000/api/course/createCourse', { title, description, Teacher: currentUser._id });
-            console.log(res.data);
-            navigate(`/displaySingleCourse/${res.data}`);
+            console.log(res.data.courseId);
+            navigate(`/displaySingleCourse/${res.data._id}`);
         
         } catch (error) {
             console.error('Error occurred:', error.message);

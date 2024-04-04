@@ -16,10 +16,12 @@ const Login = () => {
         email: '',
         password: '',
     });
+
     const [formdata2, setformdata2] = useState({
         email: '',
         password: '',
     });
+    
     const handleChangeParent = (e) => {
         setformdata1({
             ...formdata1,
