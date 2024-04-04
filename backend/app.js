@@ -10,7 +10,10 @@ const courseRouter=require('./routes/courseRoutes');
 const assignmentRouter=require('./routes/assignmentRoutes');
 
 const resourceRouter=require('./routes/resourceRoutes');
-const webinarRoutes=require('./routes/webinarRoutes')
+const webinarRoutes=require('./routes/webinarRoutes');
+const wordRoutes=require("./routes/wordsRoutes");
+const questionRoutes=require("./routes/questionRoutes");  
+// const quizRoutes=require("./routes/quizRoutes");  
 
 const cors=require('cors');
 const cookieParser=require('cookie-parser');
@@ -44,6 +47,10 @@ cloudinary.cloudinaryConnect();
 app.use('/api/resources',resourceRouter);
 app.use('/api/webinars',webinarRoutes);
 // app.use('/api/forums', forumRouter);
+
+app.use('/api/word', wordRoutes);
+app.use('/api/question', questionRoutes);
+app.use('/api/quiz', quizRoutes);
 
 
 

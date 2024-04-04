@@ -25,7 +25,7 @@ const courseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Parent",
     }
-})
-module.exports = mongoose.model("Course", courseSchema)
+});
+module.exports = mongoose.model("Course", courseSchema);
 
 
