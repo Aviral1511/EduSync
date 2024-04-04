@@ -72,3 +72,7 @@ console.log(alreadyExists)
 
     }
 }
+
+exports.createForum = async (req, res) => {
+    
+}
