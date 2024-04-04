@@ -35,8 +35,8 @@ const TeacherPage = () => {
             to={`/displaySingleCourse/${course._id}`}
               key={index}
               className='flex flex-col bg-blue-200 rounded-lg p-4'>
-              <h2 className='font-semibold text-xl text-gray-800'>{course.title}</h2>
-              <p className='text-lg text-gray-700'>{course.description}</p>
+              <h2 className='font-semibold text-2xl text-gray-800'>{course.title}</h2>
+              <p className='text-lg text-gray-600'>{course.description}</p>
             </Link>
           ))}
         </div>
