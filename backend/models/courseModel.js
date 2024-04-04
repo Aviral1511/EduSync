@@ -16,10 +16,9 @@ const courseSchema = new mongoose.Schema({
     Assignment: {
         type: Array,
     },
-    Teacher: {
+    teacher: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Teacher",
-        require: true,
     },
     EnrolledUser: {
         type: Array,

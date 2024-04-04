@@ -31,6 +31,22 @@ exports.createParent = async (req, res) => {
     }
 }
 
+
+
+        exports.signout = async (req, res) => {
+            try {
+                res.clearCookie('token');
+                res.status(200).json({message:'user has been logged out !',success: true});
+            }
+            catch (err) {
+                return res.status(500).json({
+                    message:"unable to log out"
+                })
+            }
+        }
+
+
+
 exports.loginParent = async (req, res) => {
     try {
         const {  email, password } = req.body;
@@ -72,6 +88,4 @@ console.log(alreadyExists)
     }
 }
 
-exports.createForum = async (req, res) => {
-    
-}
+

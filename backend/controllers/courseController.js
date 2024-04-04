@@ -7,33 +7,41 @@ exports.createCourse = async (req, res) => {
     try {
         const randomNumber = uuid.v4();
         const sixDigitNumber = randomNumber.substring(0, 6);
-        console.log(sixDigitNumber);
+        // console.log(sixDigitNumber);
 
         const { teacher, title, description } = req.body;
-
+        console.log(typeof (teacher));
+        console.log(teacher, title, description);
         // Ensure teacher exists
         const teacherone = await Teacher.findOne({ _id: teacher });
+
         if (!teacherone) {
             return res.status(404).json({
                 message: "Teacher not found"
             });
         }
-
+        // console.log(teacherone._id);
         // Create a new course
+        const idTeacher = teacherone._id;
+        // console.log("teracher id is "+idTeacher);
+
         const newCourse = new Course({
-            Teacher: teacherone._id,
+            teacher: idTeacher,
             title,
             description,
             courseId: sixDigitNumber
         });
-
+        await newCourse.save();
+        // console.log(newCourse);
         // Push the course ObjectId to teacher's courses array
-        teacherone.courses?.push(newCourse._id);
+        const idCourse = newCourse._id;
+        // console.log("course id is "+idCourse);
 
+        teacherone.courses?.push(idCourse);
+        await teacherone.save();
         // Save changes to the teacher and the new course
-        await Promise.all([teacherone.save(), newCourse.save()]);
-
-        return res.status(201).json({ savedCourse: newCourse, teacherone });
+        // await Promise.all([teacherone.save(), newCourse.save()]);
+        return res.status(201).json(newCourse);
     } catch (err) {
         console.log(err.message);
         return res.status(500).json({
@@ -88,6 +96,7 @@ exports.JoinCourseByCourseId = async (req, res) => {
         console.log("in");
         console.log(req.body);
         const { courseId, studentId } = req.body;
+
         const course = await Course.findOne({ courseId: courseId })
         if (!course) {
             return res.status(404).json({
@@ -96,14 +105,16 @@ exports.JoinCourseByCourseId = async (req, res) => {
         }
 
         // EnrolledCourses
+        console.log("in1");
         console.log(studentId);
         const student = await Parent.findOne({ _id: studentId });
         // console.log(student);
         student.EnrolledCourses.push(course._id);
         await student.save();
+        console.log("in2");
         // console.log(student);
         return res.status(200).json(
-            { student }
+            { message: "successful", success: true, student }
         );
 
     } catch (err) {
