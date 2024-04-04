@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import image from '../../public/education.svg'
 import axios from 'axios';
 import { signoutUserStart, signoutUserSuccess, signoutUserFailure } from '../redux/user/userSlice';
 
@@ -43,31 +44,39 @@ const Navbar = () => {
         <div className='flex flex-row gap-3 items-center'>
           <Link to="/"
             onClick={closeDropdown}>
-            <div className='flex flex-row gap-2'>
-              <span className='text-blue-400 font-bold sm:text-2xl text-xl'>Edusync</span>
+            <div className='flex flex-row items-center gap-1'>
+            <img src={image} className='h-[25px] w-[25px]'></img>
+              <span className='text-blue-400 font-bold sm:text-2xl text-xl'>
+
+              Edusync</span>
             </div>
           </Link>
-          {currentUser && currentUser.mode === 'teacher' && <button className='hidden hover:cursor-pointer text-white sm:block'>
-            <Link className='hover:text-gray-900 duration-200 transition-all' to='/TeacherPage'  >Your Courses</Link>
-          </button>
+          {
+            currentUser && currentUser.mode === 'teacher' && <button className='hidden hover:cursor-pointer text-white sm:block'>
+              <Link className='hover:text-gray-900 duration-200 transition-all' to='/TeacherPage'  >Your Courses</Link>
+            </button>
           }
-          {currentUser && currentUser.mode === 'teacher' && <button className='hidden hover:cursor-pointer text-white sm:block'>
-            <Link className='hover:text-gray-900 duration-200 transition-all' to='/createCourse' >Create Course</Link>
-          </button>
+          {
+            currentUser && currentUser.mode === 'teacher' && <button className='hidden hover:cursor-pointer text-white sm:block'>
+              <Link className='hover:text-gray-900 duration-200 transition-all' to='/createCourse' >Create Course</Link>
+            </button>
           }
-          {currentUser && currentUser.mode === 'parent' && <button className='hidden hover:cursor-pointer text-white sm:block'>
-            <Link className='hover:text-gray-900 duration-200 transition-all' to='/ParentPage'  >Your Courses</Link>
-          </button>
+          {
+            currentUser && currentUser.mode === 'parent' && <button className='hidden hover:cursor-pointer text-white sm:block'>
+              <Link className='hover:text-gray-900 duration-200 transition-all' to='/ParentPage'  >Your Courses</Link>
+            </button>
           }
-          {currentUser && currentUser.mode === 'parent' && <button className='hidden hover:cursor-pointer text-white sm:block'>
-            <Link className='hover:text-gray-900 duration-200 transition-all' to='/join-course' >Join Course</Link>
-          </button>
+          {
+            currentUser && currentUser.mode === 'parent' && <button className='hidden hover:cursor-pointer text-white sm:block'>
+              <Link className='hover:text-gray-900 duration-200 transition-all' to='/join-course' >Join Course</Link>
+            </button>
           }
         </div>
         {/* part 2 */}
 
         <div className='flex flex-row gap-3    items-center'>
-          {currentUser && <span onClick={handleSignOut} className='text-gray-900 text-lg hidden sm:block  sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
+          {
+            currentUser && <span onClick={handleSignOut} className='text-gray-900 text-lg hidden sm:block  sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
           }
           {
             !currentUser && <div className='flex flex-row gap-3   items-center'>
@@ -112,32 +121,36 @@ const Navbar = () => {
                       </Link>
                     }
 
-                    {currentUser && currentUser.mode === 'parent' && <Link
+                    {
+                      currentUser && currentUser.mode === 'parent' && <Link
 
-                      className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center '
-                      to={'/join-course'}
-                      onClick={closeDropdown}>
-                      Join Course
-                    </Link>
+                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center '
+                        to={'/join-course'}
+                        onClick={closeDropdown}>
+                        Join Course
+                      </Link>
                     }
-                    {currentUser && currentUser.mode === 'teacher' && <Link
+                    {
+                      currentUser && currentUser.mode === 'teacher' && <Link
 
-                      className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
-                      to={'/TeacherPage'}
-                      onClick={closeDropdown}>
-                      Your Courses
-                    </Link>
+                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        to={'/TeacherPage'}
+                        onClick={closeDropdown}>
+                        Your Courses
+                      </Link>
                     }
 
-                    {currentUser && currentUser.mode === 'teacher' && <Link
+                    {
+                      currentUser && currentUser.mode === 'teacher' && <Link
 
-                      className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
-                      to={'/createCourse'}
-                      onClick={closeDropdown}>
-                      Create Course
-                    </Link>
+                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        to={'/createCourse'}
+                        onClick={closeDropdown}>
+                        Create Course
+                      </Link>
                     }
-                    {currentUser && <span onClick={handleSignOut} className='text-red-500 text-center text-lg sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
+                    {
+                      currentUser && <span onClick={handleSignOut} className='text-red-500 text-center text-lg sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
                     }
                   </div>
                   {
@@ -160,7 +173,8 @@ const Navbar = () => {
                         className="block px-4 text-center py-2 text-sm text-white  hover:bg-gray-700 rounded-2xl  bg-gray-600" role="menuitem">
                         Sign in
                       </Link>
-                    </div>}
+                    </div>
+                  }
                 </div>
               )}
           </div>

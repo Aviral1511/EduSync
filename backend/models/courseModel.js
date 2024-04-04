@@ -13,19 +13,16 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Assignment: {
-        type: Array,
-    },
     teacher: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Teacher",
     },
-    EnrolledUser: {
-        type: Array,
+    EnrolledUser: [{
+       
         type: mongoose.Schema.Types.ObjectId,
         ref: "Parent",
-    }
-});
-module.exports = mongoose.model("Course", courseSchema);
+    }]
+})
+module.exports = mongoose.model("Course", courseSchema)
 
 

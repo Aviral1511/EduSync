@@ -6,7 +6,7 @@ const dbConnect = require('./config/dbConnect');
 const parentRouter = require('./routes/parentRoutes');
 const teacherRouter=require('./routes/teacherRoutes');
 const courseRouter=require('./routes/courseRoutes');
-
+const marksRouter = require('./routes/marksRoute')
 const assignmentRouter=require('./routes/assignmentRoutes');
 
 const resourceRouter=require('./routes/resourceRoutes');
@@ -19,7 +19,10 @@ const cors=require('cors');
 const cookieParser=require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
-dbConnect();
+dbConnect().then(() => {
+  console.log("Connection successful");
+})
+.catch(err => console.log(err));
 
 const socketIO = require('socket.io')(http, {
   cors: {
@@ -39,7 +42,7 @@ app.use(cors());
 app.use('/api/parent',parentRouter);
 app.use('/api/teacher',teacherRouter);
 app.use('/api/course',courseRouter);
-
+app.use('/api/marks',marksRouter);
 app.use('/api/assignment',assignmentRouter);
 const cloudinary=require('./config/cloudinary');
 cloudinary.cloudinaryConnect();
@@ -50,7 +53,7 @@ app.use('/api/webinars',webinarRoutes);
 
 app.use('/api/word', wordRoutes);
 app.use('/api/question', questionRoutes);
-app.use('/api/quiz', quizRoutes);
+// app.use('/api/quiz', quizRoutes);
 
 
 

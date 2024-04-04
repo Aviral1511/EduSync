@@ -1,20 +1,45 @@
 import React from 'react'
-import ImgMediaCard from '../components/Card'
 import Navbar from '../components/Navbar'
-
-
+import Features from '../components/Features'
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const HomePage = () => {
-    
+  const { currentUser } = useSelector(state => state.user);
+
   return (
-    <div> <Navbar />
-    <div style={{display:"flex", justifyContent:"space-evenly", marginTop:"6rem"}}>        
-        <div>
-            <ImgMediaCard img={"https://th.bing.com/th/id/OIP.upyE1zio2kz2cuU2Qf5MKgHaE8?w=254&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"} alt={"teacher image"} title={"Teacher"} desc={"Continue as Teacher"} link={"/login"}/>
+    <div>
+      <Navbar />
+      <div>
+
+        <div className='w-11/12 mt-5 mx-auto rounded-xl p-8'>
+          <div className='mx-auto text-center w-full'>
+            <span className='text-blue-500   font-bold sm:text-6xl text-5xl sm:inline block'>EduSync  </span>
+            <span className='font-bold  text-gray-600 sm:text-6xl text-5xl  sm:inline block'>App </span>
+            <p className='mx-auto text-lg text-gray-700 mt-2 mb-2'>
+
+              Welcome to our  centralized online platform offering diverse resources, guides, and tips tailored to parents needs, covering topics such as study techniques, homework management, and fostering a conducive learning environment at home.
+
+            </p>
+            {
+              currentUser && currentUser.mode === 'teacher' &&
+              <Link className='  hover:cursor-pointer text-center text-white '
+                to={'/TeacherPage'}>
+                <button className='text-start rounded-xl bg-blue-600 py-2 px-3'>Get Started</button></Link>
+
+            }
+            {
+              currentUser && currentUser.mode === 'parent' &&
+              <Link className='  hover:cursor-pointer text-center text-white '
+                to={'/ParentPage'}>
+                <button className='text-start rounded-xl bg-blue-600 py-2 px-3'>Get Started</button></Link>
+
+            }
+        
+          </div>
+
         </div>
-        <div>
-            <ImgMediaCard img={"https://th.bing.com/th?id=OIP.AK7VvijSXOU9rwk6ChWB_AHaFS&w=295&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"} alt={"parent image"} title={"Parent"} desc={"Continue as Parent"} link={"/login"}/>
-        </div> 
-    </div>
+      </div>
+      <Features />
     </div>
   )
 }
