@@ -2,7 +2,7 @@ const express= require('express')
 const app= express();
 const http = require('http').Server(app);
 require('dotenv').config();
-const {dbConnect} = require('./config/dbConnect');
+const dbConnect = require('./config/dbConnect');
 const parentRouter = require('./routes/parentRoutes');
 const teacherRouter=require('./routes/teacherRoutes');
 const courseRouter=require('./routes/courseRoutes');
@@ -49,7 +49,7 @@ app.use('/api/webinars',webinarRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello, world!"); 
-  });
+});
 
 
 const PORT=4000;

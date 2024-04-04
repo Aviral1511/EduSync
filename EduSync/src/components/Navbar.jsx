@@ -37,9 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    // <div>
 
-    // </div>
     <nav className='w-full z-10 mx-auto   '>
       <div className='flex flex-row justify-between mx-auto bg-blue-800  py-4  px-7 shadow-lg'>
         <div className='flex flex-row gap-3 items-center'>
