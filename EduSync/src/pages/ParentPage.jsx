@@ -1,9 +1,9 @@
 import React from 'react'
-import ParentNav from '../components/ParentNav'
+import Navbar from '../components/Navbar'
 
 const ParentPage = () => {
   return (
-    <ParentNav />
+    <Navbar />
   )
 }
 

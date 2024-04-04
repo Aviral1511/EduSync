@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import image from '../../public/learning-education-ideas-insight-intelligence-study-concept.jpg';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 const CourseCreate = () => {
     const { currentUser } = useSelector((state) => state.user);
     const [title, setTitle] = useState('');
@@ -22,6 +23,8 @@ const CourseCreate = () => {
     };
 
     return (
+        <div>
+        <Navbar/>
         <div className='h-screen mx-auto w-full flex flex-row items-center justify-center'>
             <div className='flex justify-center items-center gap-3 w-full flex-col sm:flex-row '>
                 {/* Image div with 60% width */}
@@ -45,6 +48,7 @@ const CourseCreate = () => {
                         </button>
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     );

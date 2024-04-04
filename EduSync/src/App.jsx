@@ -10,7 +10,7 @@ import ParentPage from './pages/ParentPage'
 import TeacherPage from './pages/TeacherPage'
 
 import JoinCourse from './pages/JoinCourse';
-
+import Navbar from './components/Navbar';
 import Forum from './components/Forum';
 import CreateForum from './components/createForum';
 import ReplyForum from './components/forumReply';
@@ -22,6 +22,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+      
         <Routes>
           <Route path='/' element={<HomePage />} />
 

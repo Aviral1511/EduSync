@@ -36,7 +36,6 @@ const [courseJoinId,setcourseJoinId] = useState();
                     <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
                 </div>
                 <h1>Id of course : {courseJoinId}</h1>
-               
             </div>
         </div>
     );
