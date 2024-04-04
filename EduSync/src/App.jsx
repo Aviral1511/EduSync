@@ -17,52 +17,46 @@ import QuestionPage from './pages/QuestionPage';
 import WordPage from './pages/WordPage';
 import ProfilePage from './pages/ProfilePage';
 import PrivateRoute from './components/PrivateRoute';
+import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
 
 
 const App = () => {
   return (
     <>
 
-   
-      
- 
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
+
+
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
 
 
 
           <Route element={<PrivateRoute />}>
             <Route path='/profile' element={<ProfilePage />} />
             <Route path='/createCourse' element={<CourseCreate />} />
+            {/* for teacher */}
             <Route path='/displaySingleCourse/:id' element={<DisplaySingleCourse />} />
             <Route path='/join-course' element={<JoinCourse />} />
             <Route path='/TeacherPage' element={<TeacherPage />} />
             <Route path='/ParentPage' element={<ParentPage />} />
-            <Route path='/ParentPage' element={<ParentPage />}/>
-       
+            <Route path='/ParentPage' element={<ParentPage />} />
+            <Route path='/displaySingleCourseForParent/:id' element={<DiaplayParentSinglePage />} />
+            <Route path='/createCourse' element={<CourseCreate />} />
+            <Route path='/join-course' element={<JoinCourse />} />
           </Route>
-        
-     
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/forum/createForum" element={<CreateForum />} />
+          <Route path="/forum/reply/:id" element={<ReplyForum />} />
+          <Route path="/simongame" element={<SimonGame />} />
+          <Route path="/publishQuestion" element={<QuestionPage />} />
+          <Route path="/publishWord" element={<WordPage />} />
 
-        <Route path='/TeacherPage' element={<TeacherPage />}/>
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-
-        <Route path='/createCourse' element={<CourseCreate />} />
-        <Route path='/displaySingleCourse/:id' element={<DisplaySingleCourse />} />
-        <Route path='/join-course' element={<JoinCourse />} />
-
-
-        <Route path="/forum" element={<Forum />} />
-        <Route path="/forum/createForum" element={<CreateForum />} />
-        <Route path="/forum/reply/:id" element={<ReplyForum />} />
-        <Route path="/simongame" element={<SimonGame />}/>
-        <Route path="/publishQuestion" element={<QuestionPage />}/>
-        <Route path="/publishWord" element={<WordPage />}/>
-
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

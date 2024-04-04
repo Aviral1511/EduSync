@@ -1,6 +1,8 @@
 const Parent = require('../models/parentModel')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const Course = require('../models/courseModel');
+const Teacher = require('../models/teacherModel')
 exports.createParent = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -44,8 +46,6 @@ exports.signout = async (req, res) => {
         })
     }
 }
-
-
 
 exports.loginParent = async (req, res) => {
     try {
@@ -92,9 +92,29 @@ exports.loginParent = async (req, res) => {
 exports.getAllCourses = async (req, res) => {
     try {
         const { id } = req.params;
+        // console.log("in");
         const getCourses = await Parent.findById({ _id: id }).populate("EnrolledCourses")
-        console.log(getCourses);
+        // console.log("courses are " + getCourses);
         return res.status(200).json(getCourses?.EnrolledCourses || []);
+
+    } catch (err) {
+        console.log(err.message);
+        return res.status(500).json({
+            message: err.message + " another one",
+            success: false,
+        })
+
+    }
+}
+
+
+exports.setSingleCourse = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const getCourses = await Course.findById({ _id: id }).populate("teacher")
+        // console.log("course is"
+        //     + getCourses);
+        return res.status(200).json(getCourses);
 
     } catch (err) {
         console.log(err.message);
