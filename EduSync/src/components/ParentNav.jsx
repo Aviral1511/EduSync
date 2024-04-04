@@ -5,7 +5,7 @@ const ParentNav = () => {
   return (
     <nav class="navbar">
     <div class="container">
-      <a href="#" class="brand">EduSync</a>
+      <a href="/" class="brand">EduSync</a>
       {/* <div class="menu-toggle">&#9776;</div> */}
       <ul class="menu">
         <li><a href="#">My Courses</a></li>

@@ -16,12 +16,11 @@ const teacherSchema =new mongoose.Schema({
     trim:true,
     required:true,
    },
-   courses:{
-    type:Array,
+   courses: [{
     type: mongoose.Schema.Types.ObjectId,
     ref:"Course",
-   }  
-,    mode: {
+   }],
+    mode: {
     type: String,
     default: "teacher",
 }

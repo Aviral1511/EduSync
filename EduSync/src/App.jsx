@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Login from './components/Login'
-import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import Signup from './components/Signup'
 import ParentPage from './pages/ParentPage'
@@ -16,7 +15,7 @@ const App = () => {
       
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/TeacherPage' element={<TeacherPage />}/>
+        <Route path='/TeacherPage/:id' element={<TeacherPage />}/>
         <Route path='/ParentPage' element={<ParentPage />}/>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />

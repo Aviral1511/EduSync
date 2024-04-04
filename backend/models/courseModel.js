@@ -13,7 +13,7 @@ const courseSchema =new mongoose.Schema({
    Assignment:{
     type:String,
    },
-   Teacher:{
+   teacher:{
     type: mongoose.Schema.Types.ObjectId,
     ref:"Teacher",
     require:true,
