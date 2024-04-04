@@ -54,7 +54,6 @@ console.log(alreadyExists)
                 id: alreadyExists._id,
                 email: email
             };
-        
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1d" });
 
         res.cookie("token", token, {
@@ -71,4 +70,8 @@ console.log(alreadyExists)
         })
 
     }
+}
+
+exports.createForum = async (req, res) => {
+    
 }
