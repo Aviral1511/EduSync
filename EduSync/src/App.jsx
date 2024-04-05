@@ -22,6 +22,7 @@ import Quiz from './pages/Quiz';
 import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
 import WordGamePage from './pages/WordGamePage';
 import QuizPage from './pages/QuizPage';
+import About from './components/About';
 
 
 const App = () => {
@@ -58,6 +59,9 @@ const App = () => {
           <Route path="/playgame/:wordId" element={<WordGamePage />} />
           <Route path="/quiz/:courseId" element={<Quiz />} />
           <Route path="/quizpage/:courseId" element={<QuizPage />} />
+          <Route path="/publishQuestion" element={<QuestionPage />} />
+          <Route path="/publishWord" element={<WordPage />} />
+          <Route path="/about" element={<About />} />
 
         </Routes>
       </BrowserRouter>

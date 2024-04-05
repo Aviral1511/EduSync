@@ -45,10 +45,10 @@ const Navbar = () => {
           <Link to="/"
             onClick={closeDropdown}>
             <div className='flex flex-row items-center gap-1'>
-            <img src={image} className='h-[25px] w-[25px]'></img>
+              <img src={image} className='h-[25px] w-[25px]'></img>
               <span className='text-blue-400 font-bold sm:text-2xl text-xl'>
 
-              Edusync</span>
+                Edusync</span>
             </div>
           </Link>
           {
@@ -76,7 +76,7 @@ const Navbar = () => {
 
         <div className='flex flex-row gap-3    items-center'>
           {
-            currentUser && <span onClick={handleSignOut} className='text-gray-900 text-lg hidden sm:block  sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
+            currentUser && <span onClick={handleSignOut} className='text-gray-100 text-lg hidden sm:block  sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
           }
           {
             !currentUser && <div className='flex flex-row gap-3   items-center'>
@@ -97,7 +97,7 @@ const Navbar = () => {
             <button
               onClick={toggleDropdown}
               type="button"
-              className="inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              className="inline-flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-800 bg-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
               id="options-menu"
               aria-haspopup="true"
               aria-expanded="true"
@@ -120,7 +120,6 @@ const Navbar = () => {
                         Your Courses
                       </Link>
                     }
-
                     {
                       currentUser && currentUser.mode === 'parent' && <Link
 

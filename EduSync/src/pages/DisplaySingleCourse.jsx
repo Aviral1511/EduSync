@@ -75,15 +75,19 @@ const DisplaySingleCourse = () => {
         <div>
             <Navbar />
             <div className='h-screen mx-auto w-full mt-3 '>
+                <div className='border-2 border-gray-800 border-opacity-50 w-[50%] justify-center items-center mx-auto my-3  rounded-xl'>
+
+                    <h1 className='text-gray-800 mt-3 mb-1 text-2xl text-center font-semibold'>{title} </h1>
+                    <h1 className='text-gray-800 mt-1 mb-1 text-xl text-center '>{description}</h1>
+                    <h1 className='text-gray-800 mt-1 mb-3 text-xl text-center '>courseId : <span className='text-green-700'> {courseJoinId}</span> </h1>
+
+                </div>
                 <div className='mx-auto flex gap-5 justify-around'>
                     <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
                     <a href={`/quizpage/${id}`}><button className='bg-blue-400 p-3 rounded-xl inline-block'>Quiz</button></a>
                     <a href={`/games/${id}`}><button className='bg-blue-400 p-3 rounded-xl inline-block'>Games</button></a>
                 </div>
 
-                <h1 className='text-gray-800 mt-3 mb-1 text-2xl text-center font-semibold'>{title} </h1>
-                <h1 className='text-gray-800 mt-1 mb-1 text-xl text-center '>{description}</h1>
-                <h1 className='text-gray-800 mt-1 mb-3 text-xl text-center '>courseId : <span className='text-green-700'> {courseJoinId}</span> </h1>
                 {
                     students && <span className='text-xl my-2 flex flex-row items-center justify-center font-semibold text-gray-800'>Students are : </span>
                 }
