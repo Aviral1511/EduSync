@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { QuizData } from "../data/QuizData"
+import { QuizData } from '../data/QuizData'
 import QuizResult from './QuizResult';
 import "./Quiz.css"
 function Quiz() {
@@ -31,7 +31,7 @@ function Quiz() {
   return (
     <div>
         <p className="heading-txt">Quiz APP</p>
-        <div className="quiz-container">
+        <div className="container">
             {showResult ? (
                 <QuizResult score={score} totalScore={QuizData.length} tryAgain={resetAll}/>
             ):(
@@ -63,4 +63,4 @@ function Quiz() {
   )
 }
 
-export default Quiz;
+export default Quiz

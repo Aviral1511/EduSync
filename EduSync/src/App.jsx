@@ -20,6 +20,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Games from './pages/Games';
 import Quiz from './pages/Quiz';
 import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
+import WordGamePage from './pages/WordGamePage';
+import QuizPage from './pages/QuizPage';
 
 
 const App = () => {
@@ -50,8 +52,12 @@ const App = () => {
           <Route path="/forum/createForum" element={<CreateForum />} />
           <Route path="/forum/reply/:id" element={<ReplyForum />} />
           <Route path="/simongame" element={<SimonGame />} />
-          <Route path="/publishQuestion" element={<QuestionPage />} />
-          <Route path="/publishWord" element={<WordPage />} />
+          <Route path="/games/:courseId" element={<Games />} />
+          <Route path="/publishQuestion/:courseId" element={<QuestionPage />} />
+          <Route path="/publishWord/:courseId" element={<WordPage />} />
+          <Route path="/playgame/:wordId" element={<WordGamePage />} />
+          <Route path="/quiz/:courseId" element={<Quiz />} />
+          <Route path="/quizpage/:courseId" element={<QuizPage />} />
 
         </Routes>
       </BrowserRouter>

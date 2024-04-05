@@ -26,11 +26,16 @@
     margin: 20px;
     border: 2px solid red;
 }
+.word-container a:hover {
+    
+}
 
 .word-item {
     width: 90%; /* Two words per row on larger screens */
     margin: 10px;
     border: 2px solid black;
+    height : 40px;
+    background-color: aquamarine;
 }
 
 .word-item p {
@@ -39,6 +44,6 @@
 
 @media (max-width: 600px) {
     .word-item {
-        width: 100%; /* One word per row on smaller screens */
+        width: 80%; /* One word per row on smaller screens */
     }
 }

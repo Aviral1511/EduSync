@@ -3,11 +3,13 @@ import './Quiz2.css'; // Import CSS file for styling
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const QuestionPage = () => {
   const navigate = useNavigate();
+  const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
-  let id = currentUser._id;
+  let courseId = params.courseId;
   const [ques, setQues] = useState('');
   const [ans, setAns] = useState('');
   const [options, setOptions] = useState(['', '', '', '']);
@@ -28,7 +30,7 @@ const QuestionPage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`http://localhost:4000/api/question/addQuizQuestion/${id}`, {ques, ans, options});
+      const res = await axios.post(`http://localhost:4000/api/question/addQuizQuestion/${courseId}`, {ques, ans, options});
       console.log(res.data);
       // Clear form fields after successful submission
       setQues('');
@@ -42,7 +44,7 @@ const QuestionPage = () => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <div className="heading">Post  Question</div>
+      <div className="heading">Question {submissionCount+1}</div>
       <div className="quiz-container">
         <div className="question-section">
           <p>Ask Your Question</p>
@@ -75,7 +77,7 @@ const QuestionPage = () => {
             onChange={(e) => setAns(e.target.value)}
           />
         </div>
-        <button className="btn" type='submit'>{submissionCount === 4 ? 'Submit' : 'Post'}</button>
+        <button className="btn" type='submit'>{submissionCount === 3 ? 'Submit' : 'Post'}</button>
       </div>
     </form>
   );

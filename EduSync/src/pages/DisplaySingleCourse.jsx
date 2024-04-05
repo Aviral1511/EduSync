@@ -77,8 +77,8 @@ const DisplaySingleCourse = () => {
             <div className='h-screen mx-auto w-full mt-3 '>
                 <div className='mx-auto flex gap-5 justify-around'>
                     <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
-                    <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
-                    <button className='bg-blue-400 p-3 rounded-xl inline-block'>Announcement</button>
+                    <a href={`/quizpage/${id}`}><button className='bg-blue-400 p-3 rounded-xl inline-block'>Quiz</button></a>
+                    <a href={`/games/${id}`}><button className='bg-blue-400 p-3 rounded-xl inline-block'>Games</button></a>
                 </div>
 
                 <h1 className='text-gray-800 mt-3 mb-1 text-2xl text-center font-semibold'>{title} </h1>

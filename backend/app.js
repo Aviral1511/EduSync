@@ -19,6 +19,7 @@ const cors=require('cors');
 const cookieParser=require('cookie-parser');
 app.use(express.json());
 app.use(cookieParser());
+
 dbConnect().then(() => {
   console.log("Connection successful");
 })

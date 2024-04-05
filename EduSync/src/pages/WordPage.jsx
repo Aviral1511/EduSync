@@ -26,7 +26,7 @@ const WordPage = () => {
       const res = await axios.post(`http://localhost:4000/api/word/addWord/${courseId}`, { word, hints });
       console.log(res.data); 
       setWord(''); setHints(['', '', '', '', '']);
-      navigate(`/TeacherPage`);
+      navigate(`/games/${courseId}`);
     } catch (err) {
       console.log(err);
     }

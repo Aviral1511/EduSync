@@ -46,11 +46,16 @@ const Games = () => {
             .catch(err => {
                 console.log("Error fetching word details:", err);
             });
-        }, [words]);
+    }, [words]);
 
         const handleSimonGameClick = () => {
             navigate(`/simongame`);
             console.log("Play Simon Game clicked");
+            // Add logic to navigate to the Simon Game page
+        };
+        const handleWordGameClick = () => {
+            navigate(`/publishWord/${courseId}`);
+            console.log("Course Id clicked");
             // Add logic to navigate to the Simon Game page
         };
     
@@ -60,14 +65,17 @@ const Games = () => {
             <button className="play-button" onClick={handleSimonGameClick}>
                 Play Simon Game
             </button>
+            <button className="play-button" onClick={handleWordGameClick}>
+                Add a new Word Game
+            </button>
             {words.length > 0 && (
                 <div>
                     <p>Check Your Knowledge by guessing the words Correctly...</p>
                     <div className="word-container">
                         {currword.map((word, index) => (
-                            <div className="word-item" key={index}>
-                                <p>{word.hints[0]}</p> {/* Render the current word */}
-                            </div>
+                        <a href ={`/playgame/${word._id}`}><div className="word-item" key={index}>
+                            <p>{word.hints[0]}</p> {/* Render the current word */}
+                        </div></a>
                         ))}
                     </div>
                 </div>

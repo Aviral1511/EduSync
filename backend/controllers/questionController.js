@@ -17,7 +17,7 @@ exports.addQues = async(req, res) => {
             });
             console.log(newquiz);
             await newquiz.save();
-            return res.status(201).json(newquiz);
+            return res.status(201).json("new",newquiz);
         }
         console.log(quiz);
         quiz?.question.push(newQues);
@@ -37,7 +37,24 @@ exports.getQuizById = async (req, res) => {
     try{
         const {courseId} = req.params;
         const questions = await Quiz.find({courseId : courseId});
+        console.log(questions);
         return res.status(201).json(questions);
+    }
+    catch(err){
+        console.log("Error ", err);
+        return res.status(500).json({
+            message: err.message,
+            success: false,
+        });
+    }
+}
+
+exports.getQuesById = async (req, res) => {
+    try{
+        const {courseId} = req.params;
+        const question = await Question.findById(courseId);
+        console.log(question);
+        return res.status(201).json(question);
     }
     catch(err){
         console.log("Error ", err);
