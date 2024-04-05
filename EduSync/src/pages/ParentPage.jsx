@@ -26,7 +26,7 @@ const ParentPage = () => {
     <>
       <Navbar />
       <div className='p-3 '>
-        <div className='sm:grid flex flex-col    sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 '>
+        <div className='sm:grid  w-10/12 mx-auto flex flex-col  sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 '>
           {courses.map((course, index) => (
             <Link
             to={`/displaySingleCourseForParent/${course._id}`}
